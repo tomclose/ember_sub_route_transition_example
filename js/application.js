@@ -1,0 +1,1 @@
+window.ShoppingCart = Ember.Application.create();
