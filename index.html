@@ -8,6 +8,15 @@
 
   <script type='text/x-handlebars' data-template-name='products'>
     <h1>Products</h1>
+    <table>
+      {{#each }}
+        <tr>
+          <td>{{ title }}</td>
+          <td>{{ price }}</td>
+        </tr>
+      {{/each}}
+    </table>
+
 
   </script>
 
@@ -19,5 +28,6 @@
   <script src="js/libs/ember-data.js"></script>
   <script src="js/application.js"></script>
   <script src="js/router.js"></script>
+  <script src="js/models/product.js"></script>
 </body>
 </html>

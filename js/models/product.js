@@ -1,6 +1,6 @@
 ShoppingCart.Product = DS.Model.extend({
-  title: DS.attr('string');
-  price: DS.attr('number');
+  title: DS.attr('string'),
+  price: DS.attr('number'),
 })
 
 ShoppingCart.Product.FIXTURES = [
