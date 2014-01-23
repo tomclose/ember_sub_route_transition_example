@@ -4,8 +4,9 @@ ShoppingCart.ProductController = Ember.ObjectController.extend({
   currentOrder: Ember.computed.alias("controllers.currentOrder"),
 
   actions: {
-    alert: function() {
-      this.get('currentOrder').send('alert'); // send because it is an action on the current_order_controller
+    addToOrder: function() {
+      var product = this.get('model');
+      this.get('currentOrder').send('addProduct', product); // send because it is an action on the current_order_controller
     }
   }
 

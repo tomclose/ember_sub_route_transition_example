@@ -14,7 +14,7 @@
         <tr>
           <td>{{ title }}</td>
           <td>{{ price }}</td>
-          <td><button {{ action "alert" }}>Fire alert</button></td>
+          <td><button {{ action "addToOrder" }}>Fire alert</button></td>
         </tr>
       {{/each}}
     </table>
@@ -22,6 +22,9 @@
 
   <script type='text/x-handlebars' data-template-name='currentOrder'>
   Current order
+  {{# each items}}
+    {{title}}
+  {{/each}}
   </script>
 
 

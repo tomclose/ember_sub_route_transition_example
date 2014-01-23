@@ -1,8 +1,9 @@
 ShoppingCart.CurrentOrderController = Ember.ObjectController.extend({
 
   actions: {
-    alert: function() {
-      alert('Fired from current order');
+    addProduct: function(product) {
+      alert('Adding ' + product.get('title') + " to order");
+      this.get('model').addProduct(product);
     }
   }
 
