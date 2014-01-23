@@ -8,18 +8,20 @@
 
   <script type='text/x-handlebars' data-template-name='products'>
     <h1>Products</h1>
+    {{ outlet currentOrder }}
     <table>
-      {{#each }}
+      {{#each itemController='product'}}
         <tr>
           <td>{{ title }}</td>
           <td>{{ price }}</td>
         </tr>
       {{/each}}
     </table>
-
-
   </script>
 
+  <script type='text/x-handlebars' data-template-name='currentOrder'>
+  Current order
+  </script>
 
 
   <script src="js/libs/jquery-1.10.2.min.js"></script>
@@ -29,5 +31,8 @@
   <script src="js/application.js"></script>
   <script src="js/router.js"></script>
   <script src="js/models/product.js"></script>
+  <script src="js/models/order.js"></script>
+  <script src="js/controllers/product_controller.js"></script>
+  <script src="js/controllers/current_order_controller.js"></script>
 </body>
 </html>
