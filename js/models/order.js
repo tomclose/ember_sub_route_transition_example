@@ -7,7 +7,6 @@ ShoppingCart.Order = DS.Model.extend({
   addProduct: function(product) {
     var items = this.get('items');
     items.pushObject(product);
-    console.log(items);
   }
 
 });
