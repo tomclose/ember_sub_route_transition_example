@@ -10,9 +10,7 @@ App.Router.map(function(){
 App.AuthenticatedRoute = Ember.Route.extend({
   beforeModel: function(transition) {
     var loggedIn = this.controllerFor('application').get('isLoggedIn');
-    window.console.log('Logged in??', loggedIn);
     if (!loggedIn) {
-      window.console.log('Not logged in, redirecting ....');
       this.redirectToLogin(transition);
     }
   },
@@ -26,7 +24,6 @@ App.AuthenticatedRoute = Ember.Route.extend({
 
 App.OrderRoute = Ember.Route.extend({
   model: function(params) {
-    window.console.log("Setting order");
     return this.store.find('order', params.order_id);
   }
 })
@@ -36,11 +33,11 @@ App.CheckoutRoute = App.AuthenticatedRoute.extend({});
 App.ApplicationRoute = Ember.Route.extend({
   actions: {
     login: function(){
-      this.controllerFor('application').set('isLoggedIn', true);
-      var attemptedTransition = this.controllerFor('application').get('attemptedTransition');
+      var applicationController = this.controllerFor('application');
+      applicationController.set('isLoggedIn', true);
+      var attemptedTransition = applicationController.get('attemptedTransition');
       if (attemptedTransition) {
         attemptedTransition.retry();
-        var applicationController = this.controllerFor('application');
         applicationController.set('attemptedTransition', null);
       } else {
         // not important
