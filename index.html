@@ -6,25 +6,29 @@
 </head>
 <body>
 
-  <script type='text/x-handlebars' data-template-name='products'>
-    <h1>Products</h1>
-    {{ outlet currentOrder }}
-    <table>
-      {{#each itemController='product'}}
-        <tr>
-          <td>{{ title }}</td>
-          <td>{{ price }}</td>
-          <td><button {{ action "addToOrder" }}>Fire alert</button></td>
-        </tr>
-      {{/each}}
-    </table>
+  <script type='text/x-handlebars' data-template-name='application'>
+    Logged in?: {{ isLoggedIn }}, <button {{action 'logout'}}>Logout</button> 
+
+    {{ outlet }}
   </script>
 
-  <script type='text/x-handlebars' data-template-name='currentOrder'>
-  Current order: {{ itemCount }}
-  {{# each items}}
-    {{title}}
-  {{/each}}
+  <script type='text/x-handlebars' data-template-name='order'>
+    <h1>Order {{ id }}</h1>
+
+    <p>You have {{ numberOfItems }} items in your cart</p>
+
+    {{#link-to 'checkout' }}Checkout{{/link-to}}
+
+    {{ outlet }}
+
+  </script>
+
+  <script type='text/x-handlebars' data-template-name='login'>
+    <button {{action 'login'}}>Login</button>
+  </script>
+
+  <script type='text/x-handlebars' data-template-name='checkout'>
+    <h1>Checkout!</h1>
   </script>
 
 
@@ -34,9 +38,5 @@
   <script src="js/libs/ember-data.js"></script>
   <script src="js/application.js"></script>
   <script src="js/router.js"></script>
-  <script src="js/models/product.js"></script>
-  <script src="js/models/order.js"></script>
-  <script src="js/controllers/product_controller.js"></script>
-  <script src="js/controllers/current_order_controller.js"></script>
 </body>
 </html>
